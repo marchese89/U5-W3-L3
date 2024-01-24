@@ -1,20 +1,26 @@
 package antoniogiovanni.marchese.U5W3L3.ex1_adapder;
 
+import lombok.AllArgsConstructor;
+import lombok.Setter;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+@Setter
+@AllArgsConstructor
+public class InfoAdapter implements DataSource{
 
-public class InfoAdapter extends Info implements DataSource{
+    private Info info;
     @Override
     public String getNomeCompleto() {
-        return super.getNome()+" "+super.getCognome();
+        return info.getNome()+" "+info.getCognome();
     }
 
     @Override
     public int getEta() {
-        Date dataDiNascita = super.getDataDiNascita();
+        Date dataDiNascita = info.getDataDiNascita();
         LocalDate lDN = dateToLocalDate(dataDiNascita);
         LocalDate now = LocalDate.now();
         return calculateDifference(now,lDN).getYears();
