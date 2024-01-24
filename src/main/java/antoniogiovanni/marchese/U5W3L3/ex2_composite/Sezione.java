@@ -24,4 +24,9 @@ public class Sezione implements Component{
             component.print();
         }
     }
+
+    @Override
+    public int getPageNumber() {
+        return sezioneList.stream().mapToInt(Component::getPageNumber).sum();
+    }
 }

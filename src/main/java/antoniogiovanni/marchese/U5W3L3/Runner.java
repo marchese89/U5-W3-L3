@@ -41,6 +41,7 @@ public class Runner implements CommandLineRunner {
         componentList.add(sezione);
         libro.setComponentList(componentList);
         libro.print();
+        System.out.println("numero di pagine: "+ libro.getNumPages());
         System.out.println("----------------------------- CHAIN OF RESPONSIBILITY -----------------------------------");
         Tenente tenente = new Tenente();
         Capitano capitano = new Capitano();

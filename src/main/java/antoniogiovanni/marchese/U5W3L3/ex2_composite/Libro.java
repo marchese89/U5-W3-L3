@@ -23,4 +23,8 @@ public class Libro {
             component.print();
         }
     }
+
+    public int getNumPages(){
+        return componentList.stream().mapToInt(Component::getPageNumber).sum();
+    }
 }
